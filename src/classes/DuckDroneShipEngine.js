@@ -82,7 +82,7 @@ export default class DuckDroneShipEngine {
         let d = THREE.MathUtils.randFloat( 0.45, 1 );
         if ( t < d ) {
             
-            let m = t * THREE.MathUtils.randInt( 1, 4 ) * THREE.MathUtils.randInt( 10, 7 );
+            let m = t * THREE.MathUtils.randInt( 1, 4 ) * THREE.MathUtils.randInt( 7, 10 );
             
             this.fire.scale.x = 1;
             this.fire.position.set( 0, - t * m -3, 0 );

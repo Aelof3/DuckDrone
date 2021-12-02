@@ -36,7 +36,7 @@ export default class DuckDroneMenu{
 
     randomMenuBG( ){
         let n = this.getRandomInt(1,22);
-        this.css.innerHTML = `#menu::before{background-image: url(src/assets/images/duckbg${n}.jpg);}`
+        this.css.innerHTML = `#menu::before{background-image: url(static/assets/images/duckbg${n}.jpg);}`
     }
 
     setupEventHandlers( ){
@@ -146,7 +146,7 @@ export default class DuckDroneMenu{
                         },
                         el: self.h2e(`<input name="settings-rocketfire" id="settings-rocketfire" type="checkbox" ${(self.settings.rocketFire) ? 'checked="checked"':""} />`)
                     },
-                    {
+                    /* {
                         name: 'engine mode',
                         type: 'select',
                         action: function( ){
@@ -158,8 +158,8 @@ export default class DuckDroneMenu{
                                             <option value="individual" ${(self.settings.ship.engines.mode === "individual") ? "selected='selected'":""}" >individual</option>
                                             <option value="individualtoggle" ${(self.settings.ship.engines.mode === "individualtoggle") ? "selected='selected'":""}" >individual toggle</option>
                                         </select>`)
-                    },
-                    {
+                    }, */
+                    /* {
                         name: 'engine max power',
                         type: 'number',
                         action: function( ){
@@ -167,8 +167,8 @@ export default class DuckDroneMenu{
                             console.log(self.settings)
                         },
                         el: self.h2e(`<input name="settings-engineMaxPower" id="settings-engineMaxPower" type="number" value="${self.settings.ship.clampRange}" />`)
-                    },
-                    {
+                    }, */
+                    /* {
                         name: 'engine strength',
                         type: 'number',
                         action: function( ){
@@ -176,8 +176,8 @@ export default class DuckDroneMenu{
                             self.updateSettings( );
                         },
                         el: self.h2e(`<input name="settings-engineStrength" id="settings-engineStrength" type="number" value="${self.settings.ship.engines.engineStrength}" />`)
-                    },
-                    {
+                    }, */
+                    /* {
                         name: 'keybind setup (1-8)',
                         type: 'number',
                         action: function( ){
@@ -189,7 +189,7 @@ export default class DuckDroneMenu{
                             self.prevMenu = 0;
                         },
                         el: self.h2e(`<input name="settings-keys" min=1 max=8 id="settings-keys" type="number" value="${self.settings.keynum}" />`)
-                    },
+                    }, */
                     {
                         name: 'back',
                         type: 'button',

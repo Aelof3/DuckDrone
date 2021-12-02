@@ -16,7 +16,7 @@ const config = {
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
+        /* publicPath: '/', */
         filename: '[name].[hash].js',
     },
     optimization: {
@@ -108,6 +108,11 @@ const config = {
             filename: (env === 'development') ? '[name].css' : '[name].[hash].css',
             chunkFilename: (env === 'development') ? '[id].css' : '[id].[hash].css',
         }),
+        new CopyWebpackPlugin(
+            [
+                { from: 'static', to: 'static' },
+            ]
+        )
     ],
     resolve: {
         extensions: ['.js', '.json'],

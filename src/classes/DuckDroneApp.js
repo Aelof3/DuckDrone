@@ -43,7 +43,22 @@ export default class DuckDroneApp{
 
         // scene
         this.scene = new THREE.Scene();
-        if ( this.settings.debug ) this.scene.background = new THREE.Color(0x220022);
+        //if ( this.settings.debug ) this.scene.background = new THREE.Color(0x220022);
+
+        
+        const loader = new THREE.CubeTextureLoader();
+        const texture = loader.load([
+            './static/assets/images/px.png',
+            './static/assets/images/nx.png',
+            './static/assets/images/py.png',
+            './static/assets/images/ny.png',
+            './static/assets/images/pz.png',
+            './static/assets/images/nz.png',
+        ]);
+        this.scene.background = texture;
+        
+
+
         // camera
         this.camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
         this.camera.position.set( -125, 125, -250 );
@@ -73,7 +88,7 @@ export default class DuckDroneApp{
 
         this.scene.add( this.light );
         
-        this.music = new Audio( './src/assets/sounds/rough3.mp3');
+        this.music = new Audio( './static/assets/sounds/rough3.mp3');
         this.music.loop = true;
         this.music.muted = !this.settings.music;
         this.musicOn = false;

@@ -70,7 +70,7 @@ export default class DuckDroneShip{
 
         this.body = new THREE.Mesh( this.geometry, this.material );
     
-        if ( this.settings.rocketFire ){
+        /* if ( this.settings.rocketFire ){
             this.engineGlow = new THREE.SpotLight( 0xaaaaaa, 20, 100 );
             this.engineGlow.angle = Math.PI / 3;
             this.engineGlow.penumbra = 1;
@@ -84,9 +84,9 @@ export default class DuckDroneShip{
             this.body.add(engineGlowTarget);
             this.body.add(this.engineGlow);
             this.engineGlow.target = engineGlowTarget;
-        }
+        } */
 
-        this.rocketAudio = new Audio(`./src/assets/sounds/rocket.mp3`)
+        this.rocketAudio = new Audio(`./static/assets/sounds/rocket.mp3`)
         this.rocketAudio.loop = true;
 
 
@@ -116,7 +116,7 @@ export default class DuckDroneShip{
     quackHandler( ){
         // random quacks
         let x = THREE.MathUtils.randInt(1,4);
-        let audio = new Audio(`./src/assets/sounds/duck${x}.mp3`)
+        let audio = new Audio(`./static/assets/sounds/duck${x}.mp3`)
         if ( this.settings.sound ) audio.play();
         this.duckQuacks ++;
         localStorage.duckQuacks = this.duckQuacks;
@@ -138,7 +138,7 @@ export default class DuckDroneShip{
         // load duck model
         let self = this;
         this.loader = new GLTFLoader( );
-        this.loader.load( './src/assets/models/Duck.gltf', function( gltf ){
+        this.loader.load( './static/assets/models/Duck.gltf', function( gltf ){
             self.duckObj = gltf;
             gltf.scene.scale.set( 20,20,20 );
             gltf.scene.traverse(function (obj) {
@@ -430,11 +430,11 @@ export default class DuckDroneShip{
                 this.engineOn( this.engines[i] );
             }
         }
-        if ( anyEnginesOn ) {
+        /* if ( anyEnginesOn ) {
             if ( this.settings.rocketFire ) this.engineGlow.visible = true;
         } else {
             if ( this.settings.rocketFire ) this.engineGlow.visible = false;
-        }
+        } */
         this.clampMovement( );
 
     }
